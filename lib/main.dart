@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:texttospeech/Screens/HomeScreen.dart';
+import 'package:texttospeech/Screens/SplashScreen.dart';
 import 'package:texttospeech/Utils/Theme/themeprovider.dart';
 
 Future<void> main() async {
@@ -28,7 +30,8 @@ Future<void> main() async {
   OneSignal.initialize("ff543914-f903-4f0d-a5ac-2fc53877281d");
   OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
   OneSignal.Notifications.requestPermission(true);
-  runApp(ChangeNotifierProvider(
+  runApp(
+    ChangeNotifierProvider(
     create: (context) => ThemeProvider(),
     child: const MyApp(),
   ));
@@ -40,10 +43,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "TextToSpeech",
-      home: const HomeScreen(),
-      theme: Provider.of<ThemeProvider>(context).themeData,
-    );
+        debugShowCheckedModeBanner: false,
+        title: "TextToSpeech",
+        home: const SplashScreen(),
+        theme: Provider.of<ThemeProvider>(context).themeData,
+      );
   }
 }

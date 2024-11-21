@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -124,7 +126,7 @@ class _CustomdrawerState extends State<Customdrawer> {
             ),
             subtitle: const Text("Our Upcoming Features"),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>const UpcomingfeaturesScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>UpcomingfeaturesScreen()));
             }
           ),
           const Divider(height: 2.0),
